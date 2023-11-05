@@ -5,6 +5,8 @@ import Products from '../Pages/Products/Products';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import DashBoard from '../Layouts/DashBoard';
 import Dashboard from '../Pages/Dashboard/Dashboard';
+import Profile from '../Pages/Profile/Profile';
+import EditeProfile from '../Pages/EditeProfile/EditeProfile';
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -32,7 +34,15 @@ const myCreateRoute = createBrowserRouter([
                     {
                         path: '/dashboard',
                         element: <Dashboard></Dashboard>
-                    }
+                    },
+                    {
+                        path: '/dashboard/profile',
+                        element: <Profile></Profile>
+                    },
+                    {
+                        path: '/dashboard/editprofile',
+                        element: <EditeProfile></EditeProfile>
+                    },
                 ]
             }
         ]
