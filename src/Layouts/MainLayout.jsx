@@ -1,8 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 import Footer from '../Pages/Footer/Footer';
+import Spinner from '../Components/Spinner/Spinner';
 
 const MainLayout = () => {
+    const navigation = useNavigation();
+    // console.log(navigation.state === 'loading');
+    const isLoadingData = navigation.state === 'loading';
     return (
         <div>
             <section className='flex justify-between px-10 mx-auto container shadow-md py-7 rounded-2xl mt-2 bg-slate-500'>
@@ -20,11 +24,15 @@ const MainLayout = () => {
                         <li>
                             <a href="/dashboard">DashBoard</a>
                         </li>
-
+                
                     </ul>
                 </nav>
             </section>
-            <Outlet></Outlet>
+            {
+                isLoadingData ? <Spinner></Spinner> : <div className='min-h-screen'><Outlet></Outlet></div>
+            }
+
+
 
             <Footer></Footer>
 
