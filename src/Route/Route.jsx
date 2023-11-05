@@ -15,6 +15,10 @@ import Products from '../Pages/Products/Products';
             {
                 path:'/products',
                 element:<Products/>
+            },
+            {
+                path:'/dashboard',
+                element:<h1 className="text-center">dashboard</h1>
             }
         ]
     }
