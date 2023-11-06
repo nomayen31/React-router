@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useNavigation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigation } from 'react-router-dom';
 import Footer from '../Pages/Footer/Footer';
 import Spinner from '../Components/Spinner/Spinner';
 
@@ -15,16 +15,38 @@ const MainLayout = () => {
                 </div>
                 <nav>
                     <ul className='flex gap-5'>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/products">Products</a>
-                        </li>
-                        <li>
-                            <a href="/dashboard">DashBoard</a>
-                        </li>
 
+
+                        <NavLink
+                            to="/"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-green-800" : ""
+                            }
+                        >
+                            Home
+                        </NavLink>
+
+                        <NavLink
+                            to="/products"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-green-800" : ""
+                            }
+                        >
+                            Products
+                        </NavLink>
+
+                        <NavLink
+                            to="/dashboard"
+                            className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "bg-green-800" : ""
+                            }
+                        >
+                            Dashboard
+                        </NavLink>
+
+
+                        
+                        
                     </ul>
                 </nav>
             </section>

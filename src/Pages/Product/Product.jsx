@@ -1,7 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
+    const navigate = useNavigate()
+    const handleSingleNavigate = () =>{
+            const user = false;
+
+        if (user === true) {
+            navigate(`/products/${id}`)
+        }else{
+            navigate('/')
+        }
+    }
     const { id, title, description, price, thumbnail } = product || {};
     return (
         <div>
@@ -34,7 +44,8 @@ const Product = ({ product }) => {
                     </div>
                     <div className="flex items-center justify-between">
                         <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-                        <Link to={`/products/${id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
+                        {/* <Link to={`/products/${id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link> */}
+                        <button onClick={handleSingleNavigate} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-10">Add to card</button>
                     </div>
                 </div>
             </div>
